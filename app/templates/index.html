@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ app_name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>{{ app_name }}</h1>
+    <p class="subtitle">Überblick über Tautulli Nutzer & IP-Verläufe</p>
+  </header>
+
+  <main class="app-main">
+    <section class="users-panel">
+      <div class="panel-header">
+        <h2>Nutzer</h2>
+        <input type="text" id="userSearch" placeholder="Filter nach Name...">
+      </div>
+      <div id="usersList" class="users-list">
+        <!-- JS füllt das -->
+      </div>
+    </section>
+
+    <section class="details-panel">
+      <div class="panel-header">
+        <h2 id="detailsTitle">Details</h2>
+            <div class="controls">
+            <label>
+                Max. IP-Einträge:
+                <input type="number" id="limitInput" min="1" max="500" value="50">
+            </label>
+            <button id="reloadBtn">Neu laden</button>
+            <button id="colorToggleBtn" class="secondary">Farben aus</button>
+            <button id="viewToggleBtn" class="secondary">Karte</button>
+            </div>
+      </div>
+      <div id="detailsContent" class="details-content">
+        <p>Bitte links einen Nutzer auswählen.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>Hinweis: IP-Standorte sind nur ungefähre GeoIP-Daten – VPNs & Carrier-NAT können täuschen.</small>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

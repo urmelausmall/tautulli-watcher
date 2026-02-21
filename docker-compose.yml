@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  tautulli-watcher:
+    image: docker.io/urmelausmall/tautulli-watcher:latest
+    container_name: tautulli-watcher
+    environment:
+      # URL zu deinem Tautulli (intern aus dem Docker-Netz, z.B. wenn Tautulli auch als Container läuft)
+      # Beispiel: http://tautulli:8181
+      TAUTULLI_URL: "http://tautulli:8181"
+
+      # Dein Tautulli API Key
+      TAUTULLI_API_KEY: "DEIN_TAUTULLI_API_KEY"
+
+      # Falls dein Tautulli HTTPS mit Self-Signed nutzt, kannst du hier SSL-Check deaktivieren (true/false)
+      TAUTULLI_VERIFY_SSL: "true"
+
+
+      # Optional: Standard-Anzahl IPs, die pro User geladen werden
+      DEFAULT_IP_LIMIT: "50"
+    ports:
+      - "8090:8000"
+    # kein restart-Policy, du hast dein eigenes Boot-System
+    # networks etc. machst du wahrscheinlich in deinem Setup selbst
